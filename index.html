@@ -1,308 +1,756 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>أكاديمية المشاهير | ALMASHAHEER ACADEMY</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --navy-dark: #07152b;
-      --navy-main: #0c2348;
-      --navy-card: #112d5a;
-      --gold-main: #d4af37;
-      --gold-light: #f0d36a;
-      --white: #ffffff;
-      --text-muted: #cbd5e1;
-      --border-gold: rgba(212, 175, 55, 0.32);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الموقع الرسمي لأكاديمية المشاهير لكرة القدم (ALMASHAHEER ACADEMY) — برامج تدريب احترافية، قيادة متخصصة، مواعيد تدريبية ثابتة، واشتراكات شهرية ميسرة.">
+    <title>أكاديمية المشاهير لكرة القدم | ALMASHAHEER ACADEMY</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <!-- خطوط جوجل: Cairo للعناوين والواجهة و Inter للأرقام والرموز اللاتينية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-main) 55%, var(--navy-dark) 100%);
-      color: var(--white);
-      line-height: 1.75;
-      min-height: 100vh;
-    }
+    <!-- مكتبة الأيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    .container {
-      width: 100%;
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
+                        heading: ['Cairo', 'Inter', 'sans-serif'],
+                        latin: ['Inter', 'Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        royal: {
+                            950: '#04101E',
+                            900: '#071B30',
+                            800: '#0C2D50',
+                            700: '#124170',
+                            600: '#1A5794',
+                        },
+                        gold: {
+                            300: '#FDE68A',
+                            400: '#F5C451',
+                            500: '#D4AF37',
+                            600: '#B58E1E',
+                            700: '#8C6B12',
+                        }
+                    },
+                    boxShadow: {
+                        gold: '0 12px 30px -6px rgba(212, 175, 55, 0.32)',
+                        royal: '0 18px 40px -10px rgba(7, 27, 48, 0.35)',
+                    }
+                }
+            }
+        };
+    </script>
 
-    header {
-      border-bottom: 1px solid var(--border-gold);
-      background: rgba(7, 21, 43, 0.88);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+    <style>
+        /* تدرجات ملكية وذهبية مخصصة لتعزيز الهوية البصرية */
+        .royal-hero-bg {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.16) 0%, transparent 42%),
+                radial-gradient(circle at 15% 85%, rgba(26, 87, 148, 0.35) 0%, transparent 48%),
+                linear-gradient(135deg, #04101E 0%, #071B30 55%, #0C2D50 100%);
+        }
 
-    .nav-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #F5C451 0%, #D4AF37 55%, #B58E1E 100%);
+        }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-ar {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--gold-light);
-    }
-
-    .brand-en {
-      font-size: 0.78rem;
-      letter-spacing: 1.5px;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-light);
-    }
-
-    .hero {
-      padding: 64px 0 48px;
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 16px;
-      border: 1px solid var(--border-gold);
-      border-radius: 999px;
-      color: var(--gold-light);
-      background: rgba(212, 175, 55, 0.08);
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.9rem, 4.5vw, 3rem);
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 14px;
-    }
-
-    .hero h1 span {
-      color: var(--gold-main);
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: 0 auto 28px;
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
-
-    .btn-gold {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold-main), var(--gold-light));
-      color: var(--navy-dark);
-      font-weight: 800;
-      text-decoration: none;
-      padding: 12px 28px;
-      border-radius: 10px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.28);
-    }
-
-    section {
-      padding: 44px 0;
-    }
-
-    .section-title {
-      font-size: 1.55rem;
-      font-weight: 800;
-      margin-bottom: 22px;
-      color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-title::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--border-gold);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: rgba(17, 45, 90, 0.78);
-      border: 1px solid var(--border-gold);
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
-    }
-
-    .role-tag {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gold-main);
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid var(--border-gold);
-      padding: 4px 12px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-
-    .staff-name {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-
-    .staff-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .info-box {
-      background: rgba(17, 45, 90, 0.65);
-      border: 1px solid var(--border-gold);
-      border-radius: 14px;
-      padding: 24px;
-      color: var(--text-muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--border-gold);
-      padding: 24px 0;
-      margin-top: 36px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    footer span {
-      color: var(--gold-light);
-      font-weight: 700;
-    }
-  </style>
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #FDE68A 0%, #F5C451 45%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="container nav-wrap">
-      <div class="brand">
-        <span class="brand-ar">أكاديمية المشاهير</span>
-        <span class="brand-en">ALMASHAHEER ACADEMY</span>
-      </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about">عن الأكاديمية</a></li>
-          <li><a href="#staff">الجهاز الفني والإداري</a></li>
-          <li><a href="#contact">التواصل</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-royal-950">
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="badge">ALMASHAHEER ACADEMY</div>
-        <h1>مرحباً بكم في <span>أكاديمية المشاهير</span></h1>
-        <p>
-          بيئة رياضية متكاملة لصقل المواهب وتطوير المهارات وفق أسس تدريبية وتنظيمية حديثة، بإشراف كوادر فنية وإدارية متخصصة.
-        </p>
-        <a href="#staff" class="btn-gold">تعرف على الجهاز الفني والإداري</a>
-      </div>
-    </section>
+    <!-- ==================== شريط التنقل العلوي ==================== -->
+    <header class="sticky top-0 z-40 bg-royal-950/95 backdrop-blur-md border-b border-gold-500/25 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- شعار وهوية الأكاديمية -->
+                <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-12 h-12 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-xl shadow-gold group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div class="leading-tight">
+                        <div class="font-heading font-black text-base sm:text-lg text-white group-hover:text-gold-300 transition-colors">
+                            أكاديمية المشاهير
+                        </div>
+                        <div class="font-latin font-bold text-[11px] tracking-widest text-gold-400 uppercase">
+                            ALMASHAHEER ACADEMY
+                        </div>
+                    </div>
+                </a>
 
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">عن الأكاديمية</h2>
-        <div class="info-box">
-          تعمل <strong>أكاديمية المشاهير</strong> على بناء جيل رياضي واعد من خلال برامج تدريبية منظمة ومتابعة إدارية دقيقة تضمن تطور اللاعبين فنياً وسلوكياً.
+                <!-- روابط التنقل للشاشات المتوسطة والكبيرة -->
+                <nav aria-label="التنقل الرئيسي" class="hidden md:flex items-center gap-7 text-sm font-bold text-slate-200">
+                    <a href="#about" class="hover:text-gold-400 transition-colors py-2">عن الأكاديمية</a>
+                    <a href="#leadership" class="hover:text-gold-400 transition-colors py-2">القيادة والكادر</a>
+                    <a href="#schedule" class="hover:text-gold-400 transition-colors py-2">مواعيد التدريب</a>
+                    <a href="#subscription" class="hover:text-gold-400 transition-colors py-2">الاشتراك الشهري</a>
+                    <a href="#contact" class="hover:text-gold-400 transition-colors py-2">تواصل معنا</a>
+                </nav>
+
+                <!-- زر الاشتراك السريع + زر القائمة للموبايل -->
+                <div class="flex items-center gap-3">
+                    <a href="#subscription"
+                        class="hidden sm:inline-flex items-center gap-2 gold-gradient-bg text-royal-950 font-heading font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-gold hover:brightness-105 transition">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>اشترك شهرياً</span>
+                    </a>
+
+                    <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu()"
+                        aria-label="فتح القائمة" aria-expanded="false"
+                        class="md:hidden w-11 h-11 rounded-xl bg-royal-900 hover:bg-royal-800 border border-gold-500/30 text-gold-400 flex items-center justify-center text-lg transition">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <section id="staff">
-      <div class="container">
-        <h2 class="section-title">الجهاز الفني والإداري</h2>
-        <div class="grid">
-          <article class="card">
-            <span class="role-tag">المدرب الفني لفئة الناشئين</span>
-            <h3 class="staff-name">عبدالرحمن التويجري</h3>
-            <p class="staff-desc">
-              الإشراف الفني وتطوير المهارات والخطط التدريبية للاعبي فئة الناشئين.
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="role-tag">إداري الفريق</span>
-            <h3 class="staff-name">عادل الزهراني</h3>
-            <p class="staff-desc">
-              متابعة الشؤون الإدارية وتنظيم شؤون الفريق واللاعبين والتنسيق اليومي.
-            </p>
-          </article>
+        <!-- قائمة الموبايل المنسدلة -->
+        <div id="mobile-menu" class="hidden md:hidden bg-royal-900 border-t border-gold-500/20 px-4 py-4 space-y-2 text-sm font-bold text-slate-200">
+            <a href="#about" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl hover:bg-royal-800 hover:text-gold-400 transition">عن الأكاديمية</a>
+            <a href="#leadership" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl hover:bg-royal-800 hover:text-gold-400 transition">القيادة والكادر</a>
+            <a href="#schedule" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl hover:bg-royal-800 hover:text-gold-400 transition">مواعيد التدريب</a>
+            <a href="#subscription" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl hover:bg-royal-800 hover:text-gold-400 transition">الاشتراك الشهري</a>
+            <a href="#contact" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl hover:bg-royal-800 hover:text-gold-400 transition">تواصل معنا</a>
+            <div class="pt-2">
+                <a href="https://wa.me/966505484445" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center gap-2 gold-gradient-bg text-royal-950 font-heading font-extrabold py-3 rounded-xl">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>تواصل عبر واتساب</span>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">التواصل</h2>
-        <div class="info-box">
-          للاستفسارات والتسجيل في <strong>أكاديمية المشاهير (ALMASHAHEER ACADEMY)</strong>، يمكنكم التواصل مع إدارة الأكاديمية عبر قنوات التواصل الرسمية.
+    <!-- ==================== القسم الرئيسي (Hero) ==================== -->
+    <section id="top" class="royal-hero-bg text-white relative overflow-hidden pt-14 pb-20 md:pt-20 md:pb-28">
+        <!-- عناصر زخرفية خفيفة -->
+        <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-gold-500/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-royal-600/25 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- النصوص التعريفية والدعوة لاتخاذ إجراء -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-800/90 border border-gold-500/40 text-gold-300 text-xs sm:text-sm font-bold shadow">
+                        <i class="fa-solid fa-futbol text-gold-400"></i>
+                        <span>تطوير المواهب الكروية وبناء الانضباط الرياضي</span>
+                    </div>
+
+                    <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-6xl leading-tight">
+                        مرحباً بكم في
+                        <span class="block gold-text-gradient mt-1">أكاديمية المشاهير</span>
+                        <span class="block font-latin text-xl sm:text-2xl font-extrabold tracking-wider text-gold-400/90 mt-2">
+                            ALMASHAHEER ACADEMY
+                        </span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        بيئة كروية متكاملة تجمع بين التدريب الفني المنظم، وتطوير قدرات اللاعبين خطوة بخطوة، والالتزام بالمواعيد ضمن نظام اشتراك شهري مرن يراعي احتياجات اللاعبين وأولياء الأمور.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#subscription"
+                            class="gold-gradient-bg text-royal-950 font-heading font-black text-sm sm:text-base px-7 py-3.5 rounded-2xl shadow-gold hover:brightness-105 transform hover:-translate-y-0.5 transition-all inline-flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>الاشتراك الشهري</span>
+                        </a>
+
+                        <a href="#schedule"
+                            class="bg-royal-800/80 hover:bg-royal-800 text-white border border-gold-500/35 font-heading font-bold text-sm sm:text-base px-6 py-3.5 rounded-2xl transition inline-flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-gold-400"></i>
+                            <span>مواعيد التدريب</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- بطاقة معلومات سريعة أبرز المحاور -->
+                <div class="lg:col-span-5">
+                    <div class="bg-royal-900/90 backdrop-blur-md border-2 border-gold-500/45 rounded-3xl p-6 sm:p-8 shadow-royal space-y-5">
+                        <div class="flex items-center justify-between border-b border-gold-500/20 pb-4">
+                            <div>
+                                <p class="text-xs text-gold-400 font-bold">نظرة سريعة</p>
+                                <h2 class="font-heading font-extrabold text-xl text-white">أساسيات الأكاديمية</h2>
+                            </div>
+                            <div class="w-11 h-11 rounded-2xl bg-royal-800 border border-gold-500/30 text-gold-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start gap-3.5 bg-royal-950/60 p-3.5 rounded-2xl border border-gold-500/15">
+                                <i class="fa-solid fa-clock text-gold-400 text-lg mt-0.5"></i>
+                                <div>
+                                    <div class="font-bold text-white">أيام وساعات التدريب</div>
+                                    <div class="text-slate-300 text-xs sm:text-sm mt-0.5">
+                                        السبت إلى الخميس • من <span class="font-bold text-gold-300" dir="ltr">3:30 PM</span> إلى <span class="font-bold text-gold-300" dir="ltr">5:30 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3.5 bg-royal-950/60 p-3.5 rounded-2xl border border-gold-500/15">
+                                <i class="fa-solid fa-couch text-gold-400 text-lg mt-0.5"></i>
+                                <div>
+                                    <div class="font-bold text-white">يوم الراحة الأسبوعي</div>
+                                    <div class="text-slate-300 text-xs sm:text-sm mt-0.5">
+                                        يوم الجمعة راحة واستشفاء للاعبين
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3.5 bg-royal-950/60 p-3.5 rounded-2xl border border-gold-500/15">
+                                <i class="fa-solid fa-calendar-days text-gold-400 text-lg mt-0.5"></i>
+                                <div>
+                                    <div class="font-bold text-white">الأولوية الحالية: الاشتراك الشهري</div>
+                                    <div class="text-slate-300 text-xs sm:text-sm mt-0.5">
+                                        متابعة منتظمة وتجديد شهري واضح ومباشر
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-1 flex items-center justify-between text-xs text-slate-300 border-t border-gold-500/20">
+                            <span>للاستفسار المباشر:</span>
+                            <a href="https://wa.me/966505484445" target="_blank" rel="noopener noreferrer"
+                                class="font-latin font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1.5" dir="ltr">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <span>0505484445</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      جميع الحقوق محفوظة &copy; 2026 <span>أكاديمية المشاهير - ALMASHAHEER ACADEMY</span>
-    </div>
-  </footer>
+    <!-- ==================== قسم عن الأكاديمية ==================== -->
+    <section id="about" class="py-16 md:py-24 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-3 mb-14">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-900 text-gold-400 text-xs font-extrabold">
+                    <i class="fa-solid fa-award"></i>
+                    <span>هوية ورؤية الأكاديمية</span>
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-royal-900">
+                    عن <span class="text-gold-600">أكاديمية المشاهير</span>
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                    تُعنى أكاديمية المشاهير (<span class="font-latin font-bold text-royal-800">ALMASHAHEER ACADEMY</span>) بتقديم تجربة تدريب كروية راقية توازن بين المهارة الفردية، والعمل الجماعي، والأخلاق الرياضية في بيئة محفزة وآمنة.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <div class="bg-slate-50 hover:bg-royal-900 group rounded-3xl p-7 border border-slate-200 hover:border-gold-500/50 transition-all duration-300 shadow-sm hover:shadow-royal">
+                    <div class="w-14 h-14 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl mb-5 shadow-gold">
+                        <i class="fa-solid fa-futbol"></i>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-xl text-royal-900 group-hover:text-gold-400 transition-colors mb-2">
+                        تأسيس فني ومهاري
+                    </h3>
+                    <p class="text-slate-600 group-hover:text-slate-300 text-sm leading-relaxed transition-colors">
+                        تركيز عملي على التحكم بالكرة، التمرير الدقيق، التسديد، والتحرك الذكي داخل الملعب وفق أسس تدريبية حديثة.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 hover:bg-royal-900 group rounded-3xl p-7 border border-slate-200 hover:border-gold-500/50 transition-all duration-300 shadow-sm hover:shadow-royal">
+                    <div class="w-14 h-14 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl mb-5 shadow-gold">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-xl text-royal-900 group-hover:text-gold-400 transition-colors mb-2">
+                        تطوير مستمر للاعب
+                    </h3>
+                    <p class="text-slate-600 group-hover:text-slate-300 text-sm leading-relaxed transition-colors">
+                        متابعة فردية لمستوى كل لاعب والعمل على صقل نقاط قوته ومعالجة الجوانب البدنية والذهنية باستمرار.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 hover:bg-royal-900 group rounded-3xl p-7 border border-slate-200 hover:border-gold-500/50 transition-all duration-300 shadow-sm hover:shadow-royal">
+                    <div class="w-14 h-14 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl mb-5 shadow-gold">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-xl text-royal-900 group-hover:text-gold-400 transition-colors mb-2">
+                        انضباط وروح رياضية
+                    </h3>
+                    <p class="text-slate-600 group-hover:text-slate-300 text-sm leading-relaxed transition-colors">
+                        غرس قيم الالتزام بالحضور، احترام الزملاء والجهاز الفني، والروح التنافسية الإيجابية داخل وخارج الملعب.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== قسم القيادة والكادر التدريبي ==================== -->
+    <section id="leadership" class="py-16 md:py-24 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-3 mb-14">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-900 text-gold-400 text-xs font-extrabold">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>إدارة وفريق العمل</span>
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-royal-900">
+                    قيادة <span class="text-gold-600">أكاديمية المشاهير</span>
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    يقود الأكاديمية نخبة تتولى الإدارة الفنية وتطوير اللاعبين وتنظيم شؤون الفريق بوضوح وتكامل.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- الرئيس -->
+                <article class="bg-royal-900 text-white rounded-3xl p-8 border-2 border-gold-500/50 shadow-royal flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-1.5 gold-gradient-bg"></div>
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl shadow-gold mb-6">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/35 mb-3">
+                            رئيس الأكاديمية
+                        </span>
+                        <h3 class="font-heading font-black text-2xl text-white mb-2">
+                            عبدالله الصعب
+                        </h3>
+                        <p class="font-latin text-xs font-bold text-gold-400/90 mb-4">
+                            Abdullah Al-Saab • President
+                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            يتولى الإشراف العام على رؤية الأكاديمية، وتنظيم برامجها، وضمان جودة بيئة العمل والتدريب لجميع المنتسبين.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- المدرب الفني -->
+                <article class="bg-royal-900 text-white rounded-3xl p-8 border-2 border-gold-500/50 shadow-royal flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-1.5 gold-gradient-bg"></div>
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl shadow-gold mb-6">
+                            <i class="fa-solid fa-whistle"></i>
+                        </div>
+                        <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/35 mb-3">
+                            المدرب الفني
+                        </span>
+                        <h3 class="font-heading font-black text-2xl text-white mb-2">
+                            نايف الخشيبان
+                        </h3>
+                        <p class="font-latin text-xs font-bold text-gold-400/90 mb-4">
+                            Naif Al-Khoshiban • Technical Coach
+                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            يشرف على التخطيط الفني للتمارين اليومية، وتطبيق الجوانب التكتيكية والمهارية وتنظيم الحصص التدريبية في الملعب.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- مدرب تطوير اللاعبين -->
+                <article class="bg-royal-900 text-white rounded-3xl p-8 border-2 border-gold-500/50 shadow-royal flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-1.5 gold-gradient-bg"></div>
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl shadow-gold mb-6">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/35 mb-3">
+                            مدرب تطوير اللاعبين
+                        </span>
+                        <h3 class="font-heading font-black text-2xl text-white mb-2">
+                            سلمان الشنبري
+                        </h3>
+                        <p class="font-latin text-xs font-bold text-gold-400/90 mb-4">
+                            Salman Al-Shanbari • Player Development Coach
+                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            يركز على الارتقاء بمستوى اللاعبين فردياً، وتنمية المهارات الأساسية والجاهزية الحركية والذهنية بما يتناسب مع كل مرحلة.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- المدرب الفني لفئة الناشئين -->
+                <article class="bg-royal-900 text-white rounded-3xl p-8 border-2 border-gold-500/50 shadow-royal flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-1.5 gold-gradient-bg"></div>
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl shadow-gold mb-6">
+                            <i class="fa-solid fa-futbol"></i>
+                        </div>
+                        <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/35 mb-3">
+                            المدرب الفني لفئة الناشئين
+                        </span>
+                        <h3 class="font-heading font-black text-2xl text-white mb-2">
+                            عبدالرحمن التويجري
+                        </h3>
+                        <p class="font-latin text-xs font-bold text-gold-400/90 mb-4">
+                            Abdulrahman Al-Tuwaijri • Youth Technical Coach
+                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            يتولى الإشراف الفني وتطوير المهارات والخطط التدريبية للاعبي فئة الناشئين وبناء جاهزيتهم الفنية.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- إداري الفريق -->
+                <article class="bg-royal-900 text-white rounded-3xl p-8 border-2 border-gold-500/50 shadow-royal flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-1.5 gold-gradient-bg"></div>
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl gold-gradient-bg text-royal-950 flex items-center justify-center text-2xl shadow-gold mb-6">
+                            <i class="fa-solid fa-clipboard-user"></i>
+                        </div>
+                        <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/35 mb-3">
+                            إداري الفريق
+                        </span>
+                        <h3 class="font-heading font-black text-2xl text-white mb-2">
+                            عادل الزهراني
+                        </h3>
+                        <p class="font-latin text-xs font-bold text-gold-400/90 mb-4">
+                            Adel Al-Zahrani • Team Administrator
+                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            يشرف على متابعة الشؤون الإدارية وتنظيم شؤون الفريق واللاعبين والتنسيق اليومي للتمارين والمشاركات.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== قسم مواعيد التدريب ==================== -->
+    <section id="schedule" class="py-16 md:py-24 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-3 mb-12">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-900 text-gold-400 text-xs font-extrabold">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>الجدول الأسبوعي</span>
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-royal-900">
+                    مواعيد <span class="text-gold-600">التدريب</span>
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    جدول تدريبي منتظم من السبت إلى الخميس، مع تخصيص يوم الجمعة للراحة الأسبوعية.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-royal-900 text-white rounded-3xl p-6 sm:p-10 border-2 border-gold-500/45 shadow-royal">
+                <!-- توضيح وقت الحصة ويوم الراحة -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-royal-950/75 border border-gold-500/30 rounded-2xl p-4 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl gold-gradient-bg text-royal-950 flex items-center justify-center text-xl flex-shrink-0">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gold-400 font-bold">وقت التمرين اليومي</div>
+                            <div class="font-heading font-extrabold text-base sm:text-lg text-white mt-0.5" dir="ltr">
+                                3:30 PM – 5:30 PM
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-royal-950/75 border border-gold-500/30 rounded-2xl p-4 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-royal-800 border border-gold-500/40 text-gold-400 flex items-center justify-center text-xl flex-shrink-0">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gold-400 font-bold">الراحة الأسبوعية</div>
+                            <div class="font-heading font-extrabold text-base sm:text-lg text-white mt-0.5">
+                                الجمعة (يوم راحة)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أيام الأسبوع -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 text-center">
+                    <div class="bg-royal-800/80 border border-gold-500/35 rounded-2xl p-3.5">
+                        <div class="font-heading font-extrabold text-sm text-white">السبت</div>
+                        <div class="text-[11px] font-bold text-gold-300 mt-1" dir="ltr">3:30–5:30 PM</div>
+                        <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">تدريب</span>
+                    </div>
+
+                    <div class="bg-royal-800/80 border border-gold-500/35 rounded-2xl p-3.5">
+                        <div class="font-heading font-extrabold text-sm text-white">الأحد</div>
+                        <div class="text-[11px] font-bold text-gold-300 mt-1" dir="ltr">3:30–5:30 PM</div>
+                        <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">تدريب</span>
+                    </div>
+
+                    <div class="bg-royal-800/80 border border-gold-500/35 rounded-2xl p-3.5">
+                        <div class="font-heading font-extrabold text-sm text-white">الاثنين</div>
+                        <div class="text-[11px] font-bold text-gold-300 mt-1" dir="ltr">3:30–5:30 PM</div>
+                        <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">تدريب</span>
+                    </div>
+
+                    <div class="bg-royal-800/80 border border-gold-500/35 rounded-2xl p-3.5">
+                        <div class="font-heading font-extrabold text-sm text-white">الثلاثاء</div>
+                        <div class="text-[11px] font-bold text-gold-300 mt-1" dir="ltr">3:30–5:30 PM</div>
+                        <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">تدريب</span>
+                    </div>
+
+                    <div class="bg-royal-800/80 border border-gold-500/35 rounded-2xl p-3.5">
+                        <div class="font-heading font-extrabold text-sm text-white">الأربعاء</div>
+                        <div class="text-[11px] font-bold text-gold-300 mt-1" dir="ltr">3:30–5:30 PM</div>
+                        <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">تدريب</span>
+                    </div>
+
+                    <div class="bg-royal-800/80 border border-gold-500/35 rounded-2xl p-3.5">
+                        <div class="font-heading font-extrabold text-sm text-white">الخميس</div>
+                        <div class="text-[11px] font-bold text-gold-300 mt-1" dir="ltr">3:30–5:30 PM</div>
+                        <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">تدريب</span>
+                    </div>
+
+                    <div class="col-span-2 sm:col-span-1 bg-royal-950/90 border border-slate-600/50 rounded-2xl p-3.5 flex flex-col justify-center">
+                        <div class="font-heading font-extrabold text-sm text-gold-400">الجمعة</div>
+                        <div class="text-[11px] font-bold text-slate-300 mt-1">راحة</div>
+                        <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-gold-500/15 text-gold-300">إجازة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== قسم الاشتراك الشهري ==================== -->
+    <section id="subscription" class="py-16 md:py-24 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-3 mb-12">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-900 text-gold-400 text-xs font-extrabold">
+                    <i class="fa-solid fa-star"></i>
+                    <span>نظام التسجيل الحالي</span>
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-royal-900">
+                    خطة <span class="text-gold-600">الاشتراك الشهري</span>
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    نعتمد حالياً الاشتراك الشهري كأولوية أساسية لتسهيل الانضمام والمتابعة المنتظمة للاعبين.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-royal-900 text-white rounded-3xl p-8 sm:p-10 border-2 border-gold-500 shadow-royal relative overflow-hidden">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <span class="inline-flex items-center gap-1.5 gold-gradient-bg text-royal-950 font-heading font-black text-xs px-4 py-1.5 rounded-full">
+                        <i class="fa-solid fa-crown"></i>
+                        <span>الأولوية الحالية للأكاديمية</span>
+                    </span>
+                    <span class="text-xs font-bold text-gold-300">تجديد شهري مرن</span>
+                </div>
+
+                <h3 class="font-heading font-black text-2xl sm:text-3xl text-white mb-2">
+                    الباقة الشهرية للتدريب والتطوير
+                </h3>
+                <p class="text-slate-300 text-sm sm:text-base mb-7">
+                    مناسبة للراغبين في الالتزام بالحضور اليومي خلال أيام التدريب من السبت إلى الخميس مع متابعة فنية وتطويرية مستمرة.
+                </p>
+
+                <ul class="space-y-3.5 text-sm text-slate-200 mb-8">
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-gold-400 text-base"></i>
+                        <span>حضور منتظم من السبت إلى الخميس (<span class="font-bold text-white" dir="ltr">3:30 PM – 5:30 PM</span>)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-gold-400 text-base"></i>
+                        <span>إشراف فني من المدرب الفني نايف الخشيبان ومتابعة تطويرية من سلمان الشنبري</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-gold-400 text-base"></i>
+                        <span>تواصل مباشر وسريع مع إدارة الأكاديمية للاستفسارات والتجديد</span>
+                    </li>
+                </ul>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                    <a href="https://wa.me/966505484445?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A7%D9%84%D8%B4%D9%87%D8%B1%D9%8A%20%D9%81%D9%8A%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D9%87%D9%8A%D8%B1."
+                        target="_blank" rel="noopener noreferrer"
+                        class="flex-1 gold-gradient-bg text-royal-950 font-heading font-black text-sm sm:text-base px-6 py-3.5 rounded-2xl shadow-gold hover:brightness-105 transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>التسجيل والاستفسار عبر واتساب</span>
+                    </a>
+
+                    <a href="mailto:academyalmashaheer@gmail.com?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A7%D9%84%D8%B4%D9%87%D8%B1%D9%8A%20-%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D9%87%D9%8A%D8%B1"
+                        class="bg-royal-800 hover:bg-royal-700 text-gold-300 border border-gold-500/35 font-heading font-bold text-sm px-5 py-3.5 rounded-2xl transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>راسلنا بالبريد</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== قسم التواصل المباشر ==================== -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-3 mb-12">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-900 text-gold-400 text-xs font-extrabold">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>قنوات التواصل الرسمية</span>
+                </span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-royal-900">
+                    تواصل مع <span class="text-gold-600">أكاديمية المشاهير</span>
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    يسعدنا استقبال استفساراتكم حول التسجيل، مواعيد التدريب، والمتابعة الإدارية.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-7 max-w-4xl mx-auto">
+                <!-- بطاقة واتساب -->
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-royal-900 text-gold-400 flex items-center justify-center text-2xl mb-5">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h3 class="font-heading font-extrabold text-xl text-royal-900 mb-1">واتساب الأكاديمية</h3>
+                        <p class="text-slate-500 text-sm mb-4">تواصل فوري للاستفسار عن الاشتراك الشهري ومواعيد التدريب.</p>
+                        <p class="font-latin font-extrabold text-xl text-royal-800 mb-5" dir="ltr">0505484445</p>
+                    </div>
+                    <a href="https://wa.me/966505484445" target="_blank" rel="noopener noreferrer"
+                        class="w-full gold-gradient-bg text-royal-950 font-heading font-extrabold text-sm py-3 rounded-xl text-center shadow-gold hover:brightness-105 transition inline-flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>فتح محادثة واتساب</span>
+                    </a>
+                </div>
+
+                <!-- بطاقة البريد الإلكتروني -->
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-royal-900 text-gold-400 flex items-center justify-center text-2xl mb-5">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <h3 class="font-heading font-extrabold text-xl text-royal-900 mb-1">البريد الإلكتروني</h3>
+                        <p class="text-slate-500 text-sm mb-4">للمراسلات الرسمية والاستفسارات التفصيلية.</p>
+                        <p class="font-latin font-bold text-base sm:text-lg text-royal-800 break-all mb-5" dir="ltr">
+                            academyalmashaheer@gmail.com
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                        <a href="mailto:academyalmashaheer@gmail.com"
+                            class="flex-1 bg-royal-900 hover:bg-royal-800 text-gold-400 font-heading font-extrabold text-sm py-3 rounded-xl text-center transition inline-flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>إرسال بريد</span>
+                        </a>
+                        <button type="button" onclick="copyEmailAddress()"
+                            class="px-4 py-3 rounded-xl bg-white hover:bg-slate-100 text-royal-900 border border-slate-300 font-bold text-xs transition inline-flex items-center gap-1.5"
+                            title="نسخ البريد الإلكتروني">
+                            <i id="copy-email-icon" class="fa-regular fa-copy"></i>
+                            <span id="copy-email-text">نسخ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== التذييل السفلي (Footer) ==================== -->
+    <footer class="bg-royal-950 text-slate-300 border-t border-gold-500/25 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl gold-gradient-bg text-royal-950 flex items-center justify-center text-base">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div>
+                    <div class="font-heading font-extrabold text-sm text-white">أكاديمية المشاهير لكرة القدم</div>
+                    <div class="font-latin text-[11px] font-bold text-gold-400 tracking-wider">ALMASHAHEER ACADEMY</div>
+                </div>
+            </div>
+
+            <div class="text-xs text-slate-400">
+                السبت – الخميس (<span class="text-gold-300" dir="ltr">3:30 PM – 5:30 PM</span>) • الجمعة راحة
+            </div>
+
+            <div class="text-xs text-slate-400">
+                © <span id="current-year" class="font-latin">2026</span> أكاديمية المشاهير. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // التحكم بقائمة التنقل في الأجهزة المحمولة
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = document.getElementById('mobile-menu-icon');
+
+            if (!menu || !btn || !icon) return;
+
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = document.getElementById('mobile-menu-icon');
+
+            if (menu) menu.classList.add('hidden');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+            if (icon) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // نسخ البريد الإلكتروني للأكاديمية مع تأكيد بصري بدون تنبيهات مزعجة
+        function copyEmailAddress() {
+            const email = 'academyalmashaheer@gmail.com';
+            const textEl = document.getElementById('copy-email-text');
+            const iconEl = document.getElementById('copy-email-icon');
+
+            const onCopied = () => {
+                if (textEl) textEl.textContent = 'تم النسخ';
+                if (iconEl) {
+                    iconEl.classList.remove('fa-copy');
+                    iconEl.classList.add('fa-check');
+                }
+                setTimeout(() => {
+                    if (textEl) textEl.textContent = 'نسخ';
+                    if (iconEl) {
+                        iconEl.classList.remove('fa-check');
+                        iconEl.classList.add('fa-copy');
+                    }
+                }, 2000);
+            };
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(email).then(onCopied).catch(() => fallbackCopy(email, onCopied));
+                } else {
+                    fallbackCopy(email, onCopied);
+                }
+            } catch (err) {
+                fallbackCopy(email, onCopied);
+            }
+        }
+
+        function fallbackCopy(text, callback) {
+            try {
+                const tempInput = document.createElement('input');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                if (typeof callback === 'function') callback();
+            } catch (err) {
+                // تجاهل الخطأ بهدوء في البيئات المقيدة
+            }
+        }
+
+        // ضبط السنة الحالية في التذييل
+        (function setFooterYear() {
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = String(new Date().getFullYear());
+            }
+        })();
+    </script>
 </body>
 </html>
